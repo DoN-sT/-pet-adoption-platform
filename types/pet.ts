@@ -4,10 +4,10 @@
 export interface Pet {
   id: number;
   name: string;
-  type: 'dog' | 'cat' | 'bird' | 'other';
+  type: string;
   breed: string;
   age: number;
-  ageUnit: 'years' | 'months';
+  ageUnit: string;
   location: string;
   healthCondition: string;
   vaccinationStatus: string;
