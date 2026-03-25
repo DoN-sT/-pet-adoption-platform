@@ -3,6 +3,27 @@
  * This file serves as the single source of truth for all pet information
  */
 
+/**
+ * @typedef {Object} Pet
+ * @property {number} id - Unique identifier
+ * @property {string} name - Pet name
+ * @property {string} type - Pet type (dog, cat, bird, other)
+ * @property {string} breed - Pet breed
+ * @property {number} age - Pet age
+ * @property {string} ageUnit - Age unit (years, months)
+ * @property {string} location - Location
+ * @property {string} healthCondition - Health condition
+ * @property {string} vaccinationStatus - Vaccination status
+ * @property {string} description - Pet description
+ * @property {number} price - Price for sale
+ * @property {number} adoptionFee - Adoption fee
+ * @property {boolean} isForSale - Available for sale
+ * @property {boolean} isForAdoption - Available for adoption
+ * @property {string} image - Image URL
+ * @property {string} contactEmail - Contact email
+ * @property {string} addedDate - Date added
+ */
+
 export const pets = [
   {
     id: 1,
@@ -245,7 +266,7 @@ export function getAllPets() {
 /**
  * Get pet by ID
  * @param {number} id - Pet ID
- * @returns {Object|undefined} Pet object or undefined if not found
+ * @returns {Pet|undefined} Pet object or undefined if not found
  */
 export function getPetById(id) {
   return pets.find(pet => pet.id === id);

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Layout from '@/components/Layout';
 import { getPetById, getAllPets } from '@/data/pets';
+import { Pet } from '@/types/pet';
 
 /**
  * Generate static params for all pet pages
@@ -18,7 +19,7 @@ export async function generateStaticParams() {
  * Pet Profile page - Detailed individual pet page with full info and contact option
  */
 export default function PetProfilePage({ params }: { params: { id: string } }) {
-  const pet = getPetById(parseInt(params.id));
+  const pet: Pet | undefined = getPetById(parseInt(params.id));
 
   if (!pet) {
     notFound();
