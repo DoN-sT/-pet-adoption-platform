@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import PetCard from '@/components/PetCard';
-import FilterBar from '@/components/FilterBar';
+import FilterBar, { FilterState } from '@/components/FilterBar';
 import SearchInput from '@/components/SearchInput';
 import Layout from '@/components/Layout';
 import { getAllPets, filterPets, sortPets, getPetTypes, getPetBreeds } from '@/data/pets';
@@ -17,7 +17,7 @@ export default function BrowsePage() {
   const [filteredPets, setFilteredPets] = useState(allPets);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('newest');
-  const [filters, setFilters] = useState({
+  const [filters, setFilters] = useState<FilterState>({
     type: 'all',
     breed: '',
     minAge: undefined,
@@ -58,7 +58,7 @@ export default function BrowsePage() {
     setFilteredPets(processedPets);
   }, [processedPets]);
 
-  const handleFilterChange = (newFilters: typeof filters) => {
+  const handleFilterChange = (newFilters: FilterState) => {
     setFilters(newFilters);
   };
 

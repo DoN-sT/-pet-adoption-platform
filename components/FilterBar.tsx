@@ -16,7 +16,7 @@ interface FilterBarProps {
   availableBreeds: string[];
 }
 
-interface FilterState {
+export interface FilterState {
   type: string;
   breed: string;
   minAge: number | undefined;
